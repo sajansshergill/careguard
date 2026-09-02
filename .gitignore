@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Env & secrets
+.env
+
+# Data artifacts (never commit PHI, indexes, or DBs)
+data/index/**
+!data/index/.gitkeep
+data/*.db
+data/eval_report.json
+data/eval_report.html
+data/audit_export.json
+
+# Notebooks
+.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

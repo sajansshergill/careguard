@@ -1,13 +1,16 @@
 """Central config, loaded from environment / .env."""
+from __future__ import annotations
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
-    llm_provider: str = "mock"
+    llm_provider: str = "mock"  # mock | openai | ollama
     llm_model: str = "gpt-4o-mini"
     openai_api_key: str = ""
+    ollama_base_url: str = "http://localhost:11434/v1"
 
     embedding_model: str = "sentence-transformers/all-MiniLM-L6-v2"
     top_k: int = 4

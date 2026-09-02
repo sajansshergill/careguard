@@ -65,13 +65,13 @@ CareGuard is built as a **LangGraph** state machine of specialized agents rather
 
 ## Tech stack
 
-- **Orchestration:** LangGraph + LangChain
-- **LLM:** pluggable (OpenAI API or a local model via Ollama)
-- **Retrieval:** FAISS / Chroma vector store, sentence-transformer embeddings
-- **Data pipeline:** PySpark for parsing, cleaning, and chunking policy + case documents at scale
-- **Storage:** SQLite (cases, decisions, audit trail) — swappable for Postgres
-- **Interface:** FastAPI backend + Streamlit demo UI
-- **Evaluation / CI:** pytest + an LLM-as-judge + rule-based grader, run in GitHub Actions
+- **Orchestration:** LangGraph
+- **LLM:** pluggable — `mock` (deterministic, no key), OpenAI, or Ollama
+- **Retrieval:** sentence-transformer embeddings + a numpy cosine index (FAISS/Chroma-shaped interface)
+- **Data pipeline:** parse → clean → chunk; PySpark when installed, Python fallback otherwise
+- **Storage:** SQLite audit trail (swap `storage/db.py` for Postgres)
+- **Interface:** FastAPI backend + Streamlit demo UI + metrics dashboard
+- **Evaluation / CI:** pytest + rule-based grounding grader + LLM-as-judge, gated in GitHub Actions
 
 ---
 
@@ -121,18 +121,23 @@ pip install -r requirements.txt
 # 3. Configure (copy and fill in)
 cp .env.example .env      # set LLM_PROVIDER, model, API key if using a hosted model
 
-# 4. Build the policy index (PySpark ingestion → vector store)
+# 4. Build the policy index (downloads MiniLM embeddings on first run)
+python -m careguard.ingest --source data/policies/
 python -m careguard.ingest --source data/policies/
 
 # 5. Run the demo
 streamlit run app.py
 ```
 
+Or: `make install && make ingest && make run`.
+
+API: `make api` then `POST /triage`. Metrics: `make dashboard`.
+
 ### Run the evaluation
 
 ```bash
 pytest tests/ -v                 # unit + grounding tests
-python -m careguard.eval         # full harness → metrics report
+python -m careguard.eval         # full harness → JSON + HTML report
 ```
 
 ---
@@ -265,9 +270,10 @@ careguard/
 
 ## Roadmap
 
+- [x] Structured export of audit logs (`GET /audit`, `export_audit()`)
+- [x] Mock / OpenAI / Ollama swap on the same agent graph
 - [ ] Confidence calibration on the router threshold
 - [ ] Batch mode for bulk case processing via PySpark
-- [ ] Structured export of audit logs for review
 - [ ] Model-swap benchmark (hosted vs. local) on the eval harness
 
 ---

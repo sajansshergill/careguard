@@ -5,9 +5,11 @@ numpy>=1.26.0
 pydantic>=2.7.0
 pydantic-settings>=2.3.0
 python-dotenv>=1.0.0
+pyyaml>=6.0.0
+pandas>=2.2.0
 fastapi>=0.111.0
 uvicorn>=0.30.0
+httpx>=0.27.0
 streamlit>=1.36.0
 pytest>=8.0.0
-openai>=1.30.0          # only needed if LLM_PROVIDER=openai
-pyspark>=3.5.0          # only needed for the PySpark ingest path
+openai>=1.30.0

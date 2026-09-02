@@ -1,0 +1,1 @@
+# intentionally empty — marks config as a package

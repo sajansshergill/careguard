@@ -1,0 +1,62 @@
+[
+  {
+    "case_id": "CASE-001",
+    "service_requested": "MRI lumbar spine",
+    "clinical_notes": "Patient reports 8 weeks of low back pain. Physical therapy and a trial of NSAIDs are documented. No red-flag symptoms."
+  },
+  {
+    "case_id": "CASE-002",
+    "service_requested": "MRI lumbar spine",
+    "clinical_notes": "Acute onset last week of uncomplicated low back pain. No prior imaging. No red-flag symptoms."
+  },
+  {
+    "case_id": "CASE-003",
+    "service_requested": "MRI lumbar spine",
+    "clinical_notes": "Three days of severe back pain with suspected cauda equina syndrome and progressive neurologic deficit."
+  },
+  {
+    "case_id": "CASE-004",
+    "service_requested": "MRI lumbar spine",
+    "clinical_notes": "Low back pain reported. Duration of symptoms is not documented and prior conservative treatment is missing from the record."
+  },
+  {
+    "case_id": "CASE-005",
+    "service_requested": "knee arthroscopy",
+    "clinical_notes": "Mechanical symptoms with locking. Completed 6 weeks of physical therapy. Imaging shows meniscus tear."
+  },
+  {
+    "case_id": "CASE-006",
+    "service_requested": "knee arthroscopy",
+    "clinical_notes": "Requested solely for osteoarthritis without mechanical symptoms. No locking or catching."
+  },
+  {
+    "case_id": "CASE-007",
+    "service_requested": "knee arthroscopy",
+    "clinical_notes": "Mechanical symptoms present. Conservative therapy attempted but duration is unclear."
+  },
+  {
+    "case_id": "CASE-008",
+    "service_requested": "in-lab sleep study",
+    "clinical_notes": "Documented high pretest probability of moderate to severe obstructive sleep apnea with observed apnea."
+  },
+  {
+    "case_id": "CASE-009",
+    "service_requested": "sleep study",
+    "clinical_notes": "Symptoms, risk factors, and pretest probability are not documented."
+  },
+  {
+    "case_id": "CASE-010",
+    "service_requested": "attended in-lab polysomnography",
+    "clinical_notes": "Uncomplicated adult with suspected OSA. Requesting in-lab study as the initial test."
+  },
+  {
+    "case_id": "CASE-011",
+    "service_requested": "cardiac stress test",
+    "clinical_notes": "8 weeks of chest discomfort; conservative therapy documented."
+  },
+  {
+    "case_id": "CASE-012",
+    "service_requested": "physical therapy extension",
+    "clinical_notes": "Routine follow-up; coverage criteria not clearly documented."
+  }
+]

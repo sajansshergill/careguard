@@ -1,0 +1,31 @@
+[project]
+name = "careguard"
+version = "0.1.0"
+description = "Multi-agent prior-authorization triage with responsible-AI guardrails"
+requires-python = ">=3.11"
+readme = "README.md"
+
+[project.optional-dependencies]
+spark = ["pyspark>=3.5.0"]
+dev = ["ruff>=0.5.0", "black>=24.0.0", "pytest>=8.0.0"]
+
+[tool.setuptools.packages.find]
+include = ["careguard*", "config*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["careguard", "config"]
+
+[tool.black]
+line-length = 100
